@@ -6,3 +6,5 @@ The following modules are required to run these scripts:
  - numpy (```pip3 install numpy``` in terminal)
  - matplotlib (```pip3 install matplotlib``` in terminal)
  - seaborn (```pip3 install seaborn``` in terminal)
+
+The jupyter notebooks have been converted to python scripts if you want to run them.
