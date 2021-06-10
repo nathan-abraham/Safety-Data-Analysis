@@ -23,3 +23,12 @@ plt.figure(figsize=(12, 6))
 sns.set_style("dark")
 sns.countplot(x='age', data=heart_df)
 plt.show()
+
+# Clean o2 data
+o2_zscores = zscore(o2_df) # Zscore assigns a score in terms of standard deviation
+abs_o2_zscores = np.abs(o2_zscores) # Get rid of negatives
+
+# Filter out values who are more than 3 Standard deviations off from the mean
+filtered_entries = (abs_o2_zscores < 3).all(axis=1) 
+o2_df = o2_df[filtered_entries]
+o2_df.describe()
