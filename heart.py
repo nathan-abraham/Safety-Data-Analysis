@@ -32,3 +32,25 @@ abs_o2_zscores = np.abs(o2_zscores) # Get rid of negatives
 filtered_entries = (abs_o2_zscores < 3).all(axis=1) 
 o2_df = o2_df[filtered_entries]
 o2_df.describe()
+
+# Plotting oxygen saturation distribution
+plt.figure(figsize=(10, 5))
+sns.set_style("dark")
+sns.histplot(data=o2_df).set(xlabel="Oxygen Saturation")
+plt.show()
+
+# Plotting gender distribution
+male_count = 0
+female_count = 0
+
+for value in heart_df["sex"]:
+    if value == 0:
+        female_count += 1
+    else:
+        male_count += 1
+
+slices = [male_count, female_count]
+labels = ["Male", "Female"]
+plt.pie(slices, labels=labels, pctdistance=0.5)
+plt.title("Gender distribution")
+plt.show()
